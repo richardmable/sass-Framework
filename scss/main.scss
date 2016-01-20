@@ -15,6 +15,13 @@
 @import 'nav';
 @import 'variables';
 
+//importing bourbon
+//bourbon install to the main scss folder
+//bourbon is a simple and lightweight mixin library for SASS
+//makes it far easier to write cross-browser SASS
+//find the bourbon examples farther down the page
+@import 'bourbon/bourbon';
+
 //these are scss variables, can call them later
 //useful for defining site wide features used over and over again
 $font-stack: Helvitica, sans-serif;
@@ -130,6 +137,107 @@ $unit: 10px;
 .article-image{
 	width: $unit*10;
 }
+
+// Commonly used Bourbon mixins/functions:
+// background-image, linear-gradient, border-image, font-face, tint, shade
+
+//mixes a color with white
+.bourbon-example {
+background: tint(orange, 50%);
+}
+//mixes a color with black 
+.bourbon-example2 {
+background: shade(red, 70%);
+}
+//this tints a color. Percentage is the amount of white to be mixed in
+.bourbon-example-tint {
+background-color: tint(#6ecaa6, 45%);
+}
+
+//this shades a color. Percentage is the amount of black to be mixed in
+.bourbon-example-shade {
+	background-color: shade(red, 37%)
+}
+
+//SASS does use if statements etc for control flow, but not recommended to use that that much
+
+//SASS @for loop
+//A great way to make a utility class with an incremental
+//measurement, like a width or font size
+
+//this loop creates 6 .cell-$i classes with property of font sizes incrementing by 12px
+@for $i from 1 to 7 {
+	.cell-#{$i} {font-size: 12px * $i;}
+}
+
+//SASS @each loop
+//allows you to iterate over a SASS lists, which is like an array
+
+//this each loop creates 3 classes called .listStyle-disc etc, and applies
+//the appropriate list style type
+@each $listStyle in disc, circle, decimal {
+	.listStyle-#{$listStyle} {
+		list-style-type: $listStyle;
+		margin: 0px;
+		text-align: left;
+		color: #34DDF2;
+	}
+}
+
+//this each loop iterates over each person
+//creates a class called .icon-zach (for example)
+//that will have their corresponding background image in it
+@each $person in zach, ray, sally {
+	.icon-#{$person} {
+		background-image: url('../images/#{$person}.png');
+		width: 400px;
+		height: 400px;
+	}
+}
+
+//Placeholders: placeholders are SASS selectors that don't get
+//used unless they're called in an @extend directive
+
+//the % denotes a placeholder
+%thick-line {
+	border: 10px solid black;
+}
+
+.profile {
+	//use @extend to call the placeholder
+	@extend %thick-line; 
+}
+
+// Create a button class using a Sass placeholder (%button) • 
+// Extend this class into two real classes that each add on to
+// the styles of the original button (.button-style-one, .button-style-two)
+
+//a button placeholder, with its own properties
+%button {
+	height: 12vw;
+	width: 6vw;
+	background-color: orange;
+	border-radius: $radius;
+}
+
+//classes that call the button placeholder with @extend directive
+//and then add some of their own properties
+.button-style-one {
+	@extend %button;
+	color: red;
+	padding: 12px;
+	margin: 0px;
+	text-align: right;
+}
+
+.button-style-two {
+	@extend %button;
+	color: blue;
+	padding: 20px;
+	margin: 5px;
+	text-align: center;
+}
+
 
 
 

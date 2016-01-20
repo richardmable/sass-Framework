@@ -67,4 +67,88 @@ h1 {
 .article-image {
   width: 100px; }
 
+.bourbon-example {
+  background: #ffd280; }
+
+.bourbon-example2 {
+  background: #4d0000; }
+
+.bourbon-example-tint {
+  background-color: #afe2ce; }
+
+.bourbon-example-shade {
+  background-color: #a10000; }
+
+.cell-1 {
+  font-size: 12px; }
+
+.cell-2 {
+  font-size: 24px; }
+
+.cell-3 {
+  font-size: 36px; }
+
+.cell-4 {
+  font-size: 48px; }
+
+.cell-5 {
+  font-size: 60px; }
+
+.cell-6 {
+  font-size: 72px; }
+
+.listStyle-disc {
+  list-style-type: disc;
+  margin: 0px;
+  text-align: left;
+  color: #34DDF2; }
+
+.listStyle-circle {
+  list-style-type: circle;
+  margin: 0px;
+  text-align: left;
+  color: #34DDF2; }
+
+.listStyle-decimal {
+  list-style-type: decimal;
+  margin: 0px;
+  text-align: left;
+  color: #34DDF2; }
+
+.icon-zach {
+  background-image: url("../images/zach.png");
+  width: 400px;
+  height: 400px; }
+
+.icon-ray {
+  background-image: url("../images/ray.png");
+  width: 400px;
+  height: 400px; }
+
+.icon-sally {
+  background-image: url("../images/sally.png");
+  width: 400px;
+  height: 400px; }
+
+.profile {
+  border: 10px solid black; }
+
+.button-style-one, .button-style-two {
+  height: 12vw;
+  width: 6vw;
+  background-color: orange;
+  border-radius: 12px; }
+
+.button-style-one {
+  color: red;
+  padding: 12px;
+  margin: 0px;
+  text-align: right; }
+
+.button-style-two {
+  color: blue;
+  padding: 20px;
+  margin: 5px;
+  text-align: center; }
+
 /*# sourceMappingURL=main.css.map */
