@@ -1,0 +1,18 @@
+//this is an example of nesting in scss
+//this is much easier than writing out the css
+//for each element
+$primary-color: #A2B444;
+
+nav {
+	ul {
+	margin: 0;
+	line-height: 10px;
+	}
+	li {
+	display: inline-block;
+	}
+	a {
+	text-decoration: none;
+	color: $primary-color;
+	}
+}

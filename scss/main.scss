@@ -1,0 +1,139 @@
+//Richard Mable
+
+//to set up watch:
+//in terminal: sass --watch scss:css
+//where scss is the folder containing main.scss
+//and css is the folder where your css will be that your link to for html
+//the css folder is auto generated once you run the watch command
+
+//this is a partial, imported from _content.scss
+//placed in the same folder as main.scss
+//partials are small snippets of style, used throughout 
+//your application but kept elsewhere in your project
+
+@import 'content';
+@import 'nav';
+@import 'variables';
+
+//these are scss variables, can call them later
+//useful for defining site wide features used over and over again
+$font-stack: Helvitica, sans-serif;
+$primary-color: #F2A554;
+$title-color: #4F6D37;
+$p-color: #1F5C53;
+$radius: 12px;
+
+
+//this is much like writing regular CSS
+//but this makes use of the variables
+body {
+	font: 100% $font-stack;
+	color: $primary-color;
+	text-align: center;
+	margin: 10%;
+}
+
+h1 {
+	font-size: $h1-size;
+}
+
+//here is an example of a mix in
+//a mixin is basically a function you write in SASS
+//typically to make cross-browser compatibility easier
+
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	-o-border-radius: $radius;
+	border-radius: $radius;
+}
+
+//this mixin is called black and takes opacity as a value
+//and it sets the background color to black
+@mixin black($opacity){
+	-webkit-background-color: rgba(0, 0, 0, $opacity);
+	-moz-background-color: rgba(0, 0, 0, $opacity);
+	-ms-background-color: rgba(0, 0, 0, $opacity);
+	-o-background-color: rgba(0, 0, 0, $opacity);
+	background-color: rgba(0, 0, 0, $opacity);
+}
+
+//same idea but this one is called white
+@mixin white($opacity){
+	-webkit-background-color: rgba(255, 255, 255, $opacity);
+	-moz-background-color: rgba(255, 255, 255, $opacity);
+	-ms-background-color: rgba(255, 255, 255, $opacity);
+	-o-background-color: rgba(255, 255, 255, $opacity);
+	background-color: rgba(255, 255, 255, $opacity);
+}
+
+.dark-mixin {
+	@include black(.7);
+	height: 200px;
+	width: 200px;
+}
+
+.light-mixin {
+	@include white(.1);
+	height: 200px;
+	width: 200px;
+}
+
+//here is an example of nesting in scss
+//this also shows how to include a mix in
+
+.main-content {
+	@include border-radius($radius);
+	border: solid 3px purple;
+
+	h2 {
+		color: $title-color;
+		font-size: 5vw;
+		border: solid 2px black;
+	}
+	p {
+		color: $p-color;
+		font-size: 3vw;
+		border: dashed 3px orange;
+	}
+	img {
+		height: 20vw;
+		width: 14vw;
+		border: solid 4px red;
+	}
+}
+
+//@extend allows you to easily bring in the styles from an already declared class
+//into a new class
+
+//the original class
+.alert {
+	background-color: #010101;
+	width: 100px;
+}
+
+//apply the properties of .alert to .notice
+//then add the .notice specific properties
+.notice {
+	@extend .alert;
+	color: orange;
+}
+
+//SASS can also do mathematical operations
+//embed the math wherever you need it
+//declare a var that has a value of 10 pixels.
+$unit: 10px;
+
+//multiply the $unit value times 10 so that the pixels will be 100 pixels
+
+.article-image{
+	width: $unit*10;
+}
+
+
+
+
+
+
+
